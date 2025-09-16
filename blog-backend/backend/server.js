@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const postRoutes = require('./routes/posts');
+const categoryRoutes = require('./routes/categories')
 const cors = require('cors');
 
 const app = express();
@@ -18,6 +19,7 @@ mongoose.connect('mongodb://localhost:27017/blog')
 
 //use routes
 app.use('/api/posts',postRoutes);
+app.use('/api/categories',categoryRoutes);
 
 
 app.listen(PORT, () => {

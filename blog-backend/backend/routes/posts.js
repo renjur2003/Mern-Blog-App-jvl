@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const Category = require('../models/Category');
 const Post = require('../models/Post');
-
 
 // get all post
 router.get('/', async (req,res) => {
@@ -79,6 +79,25 @@ await Post.findByIdAndDelete(post._id);
 res.json({message: "Post deleted successfully"});
     }catch(error){
 res.status(500).json({message: error.message});
+    }
+})
+
+// Fetch posts by category ID
+router.get('/category/:categoryId',async(req,res) => {
+    try{
+        const categoryId = req.params.categoryId;
+
+        //validate Category ID
+        const categoryExist = await Category.findById(categoryId);
+        if(!categoryExist){
+            res.status(400).json({message:'Invalid Category ID'})
+        }
+
+        // Fetch posts
+        const posts = await Post.find({category:categoryId}).populate('category');
+        res.status(200).json(posts)
+    } catch (error) {
+res.status(500).json({message:error.message})
     }
 })
 
