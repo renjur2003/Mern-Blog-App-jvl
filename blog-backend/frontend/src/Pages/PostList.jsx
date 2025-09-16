@@ -53,7 +53,9 @@ useEffect(() => {
 						<div className="card-body">
 							<h5 className="card-title">Categories</h5>
 							<ul className="list-group">
-								{categories.map(category => <li className="list-group-item"><Link to={`/posts/category/${category._id}`} className="text-black">{category.name}</Link></li>)}
+								{categories.map(category => <li className="list-group-item"><Link to={`/posts/category/${category._id}`} 
+								className="text-black">{category.name}</Link></li>)}
+							
 								
 							</ul>
 						</div>

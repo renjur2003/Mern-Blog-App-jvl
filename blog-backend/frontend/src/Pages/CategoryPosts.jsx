@@ -31,14 +31,18 @@ export default function CategoryPosts() {
     return <>
 
     <main>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="mb-4">{category.name}</h1>
+        <div className="container mt-4">
+            <div className="row">
+                <div className="col-lg-8">
+                    <h1 className="mb-4">{category.name}</h1>
 
-                    {
-                        posts.length > 0 ? posts.map((post) => <Post post={post} />) : <h4>No posts available</h4>
-                    }
+{posts.length > 0 ? (
+    posts.map((post) => (
+        <Post key={post._id || post.id} post={post} />
+    ))
+) : (
+    <h4>No posts available</h4>
+)}
                  
 
                 </div>
