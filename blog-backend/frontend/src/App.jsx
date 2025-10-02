@@ -3,7 +3,7 @@ import './App.css'
 import Footer from './components/Footer';
 import Header from './components/Header';
 import CategoryPosts from './Pages/CategoryPosts';
-import PostDetail from './pages/PostDetail';
+import PostDetail from './Pages/PostDetail';
 import PostList from './Pages/PostList';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
